@@ -66,7 +66,7 @@ int main(void) {
         printf("Res1: %s\n", res);
 
     strcpy(res, str2);
-        printf("Res2: %s\n\n", res);
+        printf("Res2: %s\n", res);
 
 
     return 0;
