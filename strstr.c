@@ -3,7 +3,20 @@
 #include <string.h>
 
 
+    // char *strstr( const char *str, const char *substr );
 char* strstr_f(const char *str, const char *substr) {
+
+/*  description:
+        Finds the first occurrence of the null-terminated byte 
+        string pointed to by substr in the null-terminated byte 
+        string pointed to by str. The terminating null characters 
+        are not compared.    
+    */
+
+/*  parameters:
+        str    = pointer to the null-terminated byte string to examine
+        substr = pointer to the null-terminated byte string to search for
+    */
 
     if (str == NULL) return NULL;
     
@@ -31,6 +44,12 @@ char* strstr_f(const char *str, const char *substr) {
 
 
     return NULL;
+
+/*  return:
+        Pointer to the first character of the found substring in str, 
+        or a null pointer if such substring is not found. If substr 
+        points to an empty string, str is returned.  
+    */
 
 }
 
