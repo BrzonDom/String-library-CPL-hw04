@@ -3,9 +3,39 @@
 #include <string.h>
 
 
+static char* iter;
+
+char* strtok_f (char* str, const char* delim) {
+
+    char* token;
+
+    if (str == NULL)
+        str = iter;
+
+    str += strspn(str, delim);
+
+    if (*str == '\0') {
+        iter = str;
+        return NULL;
+    }
+
+    token = str;
+    str = strpbrk(token, delim);
+
+    if (str == NULL)
+        iter = strchr(token, '\0');
+    else {
+        *str = '\0';
+        iter = str + 1;
+    }
+
+    return token;
+}
+
+
 int main(void) {
 
-    int i;
+    int i, j;
 
     char str[] = "Part1 Part2 Part3 Part4 Part5";
     char splt[] = " ";
@@ -46,5 +76,6 @@ int main(void) {
 
 
     return 0;
+
 
 }
