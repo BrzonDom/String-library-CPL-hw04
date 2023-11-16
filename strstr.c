@@ -3,6 +3,38 @@
 #include <string.h>
 
 
+char* strstr_f(const char *str, const char *substr) {
+
+    if (str == NULL) return NULL;
+    
+    if (*substr == '\0') return (char*) str;
+
+    const char* tempStr = str;
+    const char* tempSubstr = substr;
+
+    int true = 1;
+
+    for ( ; *str != '\0'; str++) {
+
+        if (*str != *substr) continue;
+
+        tempStr = str;
+
+        while (true) {
+
+            if (*tempSubstr == '\0') return (char*) str;
+
+            if (*tempStr++ != *tempSubstr++) break;
+        }
+        tempSubstr = substr;
+    }
+
+
+    return NULL;
+
+}
+
+
 int main(void) {
 
     char str1[] = "Test1 Test2 Test3 Test4 Test5";
