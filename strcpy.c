@@ -22,14 +22,15 @@ char* strcpy_f(char* dest, const char* src) {
 
     unsigned long int i = 0;
 
-    while (src[i] != '\0') {
+    while (*src != '\0') {
 
-        dest[i] = src[i];
+        *dest = *src;
         
-        i++;
+        dest++;
+        src++;
     }
 
-    dest[i] = '\0';
+    *dest = '\0';
 
 
     return dest;
