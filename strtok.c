@@ -1,7 +1,7 @@
-#include <corecrt.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 
     // size_t strspn( const char* dest, const char* src );
 size_t strspn_f(const char* dest, const char* src) {
@@ -120,7 +120,7 @@ int main(void) {
     //     printf("%c", str[i]);
 
 
-    printf("%s\n", str);
+    printf("Str: %s\n", str);
     printf("\tlen: %d\n", lenStr);
     printf("\tsiz: %d\n", szStr);
 
@@ -129,34 +129,42 @@ int main(void) {
     char* res;
     i = 1;
 
+    printf("Library strtok function:\n\n");
+
+    printf("\tStr: %s\n\n", str);
+
     res = strtok(str, splt);
 
     while (res != NULL) {
         
-        printf("%d.part: %s\n", i, res);
+        printf("\t%d.part: %s\n", i, res);
         i++;
 
-        // for (j = 0; j < szStr; j++)
-        //     printf("%c", str[j]);
-        // printf("\n\n");
+        printf("\t\t");
+        for (j = 0; j < szStr; j++)
+            printf("%c", str[j]);
+        printf("\n\n");
 
         res = strtok(NULL, splt);
     }
 
+    printf("\nMy strtok function:\n\n");
+
     strcpy(str, "Part1 Part2 Part3 Part4 Part5");
-    printf("\n\nStr: %s\n\n", str);
+    printf("\tStr: %s\n\n", str);
 
     res = strtok_f(str, splt);
     i = 1;
 
     while (res != NULL) {
 
-        printf("%d.part: %s\n", i, res);
+        printf("\t%d.part: %s\n", i, res);
         i++;
 
-        // for (j = 0; j < szStr; j++)
-        //     printf("%c", str[j]);
-        // printf("\n\n");
+        printf("\t\t");
+        for (j = 0; j < szStr; j++)
+            printf("%c", str[j]);
+        printf("\n\n");
     
         res = strtok_f(NULL, splt);
     }
