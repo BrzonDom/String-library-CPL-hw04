@@ -26,6 +26,8 @@ char* strchr_f(const char *str, int ch) {
         str++;
     }
 
+    if (ch == '\0') return (char*) str;
+
     return NULL;
 
 /*  return:            
@@ -42,7 +44,7 @@ int main(void) {
 
     char str1[] = "Test1 Test2 abcABC 0123";
     char str2[] = "aA bB 12";
-    char fin = '1';
+    char fin = 'z';
 
     int len1 = strlen(str1);
     int len2 = strlen(str2);
@@ -67,12 +69,16 @@ int main(void) {
     res = strchr(str1, fin);
 
     printf("\t            1.string:   %s\n", str1);
+        // if (res == NULL) printf("\t\t\t\t\t\t\tNULL\n\n");
+        // else printf("\tRest of the 1.string:   %s\n\n", res);
     printf("\tRest of the 1.string:   %s\n\n", res);
 
 
     res = strchr(str2, fin);
 
     printf("\t            2.string:   %s\n", str2);
+        // if (res == NULL) printf("\t\t\t\t\t\t\tNULL\n\n");
+        // else printf("\tRest of the 2.string:   %s\n\n", res);
     printf("\tRest of the 2.string:   %s\n\n", res);
 
 
@@ -82,11 +88,15 @@ int main(void) {
     res = strchr_f(str1, fin);
 
     printf("\t            1.string:   %s\n", str1);
+        // if (res == NULL) printf("\t\t\t\t\t\t\tNULL\n\n");
+        // else printf("\tRest of the 1.string:   %s\n\n", res);
     printf("\tRest of the 1.string:   %s\n\n", res);
 
     res = strchr_f(str2, fin);
 
     printf("\t            2.string:   %s\n", str2);
+        // if (res == NULL) printf("\t\t\t\t\t\t\tNULL\n\n");
+        // else printf("\tRest of the 2.string:   %s\n\n", res);
     printf("\tRest of the 2.string:   %s\n\n", res);
 
     return 0;
