@@ -16,6 +16,7 @@ size_t strspn_f(const char* dest, const char* src) {
         src	 = pointer to the null-terminated byte string that contains the characters to search for
     */
 
+/*    // strspn function written without pointer arithmetics
     size_t len = 0, i, j;
 
     size_t lenDest = 0;
@@ -41,7 +42,30 @@ size_t strspn_f(const char* dest, const char* src) {
         else len++;
 
     }
-    
+*/
+
+    size_t len = 0;
+
+    int match = 0;
+
+    while (*dest != '\0') {
+
+        match = 0;
+
+        while (*src != '\0') {
+            if (*dest == *src) {
+                match = 1;
+                break;
+            }
+            src++;
+        }
+
+        if (!match) break;
+        else len++;
+
+        dest++;
+
+    }
 
     return len;
 
@@ -49,6 +73,7 @@ size_t strspn_f(const char* dest, const char* src) {
         The length of the maximum initial segment that contains only characters from byte string pointed to by src.
     */
 }
+
 
 
 int main(void) {
