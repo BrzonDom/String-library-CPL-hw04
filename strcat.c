@@ -74,6 +74,15 @@ int main(void) {
         printf("\tRes: %s\n", str1);
 
 
+    printf("\nMy strcat function:\n\n");
+
+    printf("\tStr1: %s\n", str1);
+    printf("\tStr2: %s\n\n", str2);
+
+    strcat_f(str1, str2);
+        printf("\tRes: %s\n", str1);
+
+
     return 0;
 
 }
