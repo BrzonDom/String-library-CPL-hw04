@@ -20,17 +20,17 @@ char* strcat_f(char* dest, const char* src) {
 
     unsigned long int i = 0, j = 0;
 
-    while (dest[i] != '\0') i++;
+    while (*dest != '\0') dest++;
 
-    while (src[j] != '\0') {
+    while (*src != '\0') {
 
-        dest[i] = src[j];
+        *dest = *src;
     
-        i++;
-        j++;
+        dest++;
+        src++;
     }
 
-    dest[i] = '\0';
+    *dest = '\0';
 
 
     return dest;
