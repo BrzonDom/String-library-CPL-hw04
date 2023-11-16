@@ -62,17 +62,32 @@ int main(void) {
 
     char* res;
 
+    printf("Library strchr function:\n\n");
+
     res = strchr(str1, fin);
 
-    printf("            1.string:   %s\n", str1);
-    printf("Rest of the 1.string:   %s\n\n", res);
+    printf("\t            1.string:   %s\n", str1);
+    printf("\tRest of the 1.string:   %s\n\n", res);
 
 
     res = strchr(str2, fin);
 
-    printf("            2.string:   %s\n", str2);
-    printf("Rest of the 2.string:   %s\n", res);
+    printf("\t            2.string:   %s\n", str2);
+    printf("\tRest of the 2.string:   %s\n\n", res);
 
+
+
+    printf("\nMy strchr function:\n\n");
+
+    res = strchr_f(str1, fin);
+
+    printf("\t            1.string:   %s\n", str1);
+    printf("\tRest of the 1.string:   %s\n\n", res);
+
+    res = strchr_f(str2, fin);
+
+    printf("\t            2.string:   %s\n", str2);
+    printf("\tRest of the 2.string:   %s\n\n", res);
 
     return 0;
 
