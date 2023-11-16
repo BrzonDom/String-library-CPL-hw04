@@ -47,6 +47,41 @@ char* strpbrk_f(const char* dest, const char* breakset) {
 }
 
 
+    // char *strchr( const char *str, int ch );
+char* strchr_f(const char *str, int ch) {
+
+/*  description:
+        Finds the first occurrence of ch (after conversion to char as if 
+        by (char)ch) in the null-terminated byte string pointed to by str 
+        (each character interpreted as unsigned char). The terminating null 
+        character is considered to be a part of the string and can be 
+        found when searching for '\0'.
+    */
+
+/*  parameters:
+        str	= pointer to the null-terminated byte string to be analyzed
+        ch  = character to search for
+    */
+
+    while (*str != '\0') {
+
+        if (*str == ch) return (char*) str;
+
+        str++;
+    }
+
+    if (ch == '\0') return (char*) str;
+
+    return NULL;
+
+/*  return:            
+        Pointer to the found character in str, or null pointer if no such 
+        character is found.
+    */
+
+}
+
+
     // size_t strspn( const char* dest, const char* src );
 size_t strspn_f(const char* dest, const char* src) {
 
@@ -132,7 +167,7 @@ char* strtok_f (char* str, const char* delim) {
     str = strpbrk_f(token, delim);
 
     if (str == NULL)
-        iter = strchr(token, '\0');
+        iter = strchr_f(token, '\0');     // iter = __rawmemchr (token, '\0');
     else {
         *str = '\0';
         iter = str + 1;
@@ -141,7 +176,8 @@ char* strtok_f (char* str, const char* delim) {
     return token;
 
 /*  return:
-        Returns pointer to the beginning of the next token or a null pointer if there are no more tokens.
+        Returns pointer to the beginning of the next token or 
+        a null pointer if there are no more tokens.
     */
 }
 
