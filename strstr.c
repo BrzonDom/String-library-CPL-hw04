@@ -66,17 +66,34 @@ int main(void) {
 
     char* res;
     
+    printf("Library strstr function:\n\n");
+
     res = strstr(str1, fin);
 
-    printf("Res1: \n");
-    printf("\t        str1: %s\n", str1);
-    printf("\tRest of str1: %s\n\n", res);
+    printf("\tRes1: \n");
+    printf("\t\t        str1: %s\n", str1);
+    printf("\t\tRest of str1: %s\n\n", res);
 
     res = strstr(str2, fin);
 
-    printf("Res2: \n");
-    printf("\t        str2: %s\n", str2);
-    printf("\tRest of str2: %s\n\n", res);
+    printf("\tRes2: \n");
+    printf("\t\t        str2: %s\n", str2);
+    printf("\t\tRest of str2: %s\n\n", res);
+
+
+    printf("\nMy strstr function:\n\n");
+
+    res = strstr_f(str1, fin);
+
+    printf("\tRes1: \n");
+    printf("\t\t        str1: %s\n", str1);
+    printf("\t\tRest of str1: %s\n\n", res);
+
+    res = strstr_f(str2, fin);
+
+    printf("\tRes2: \n");
+    printf("\t\t        str2: %s\n", str2);
+    printf("\t\tRest of str2: %s\n\n", res);
 
 
     return 0;
