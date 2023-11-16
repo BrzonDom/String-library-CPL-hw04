@@ -3,6 +3,50 @@
 #include <string.h>
 
 
+    // char *strpbrk( const char *dest, const char *breakset );
+char* strpbrk_f(const char* dest, const char* breakset) {
+
+/*  description:
+        Scans the null-terminated byte string pointed to by dest for 
+        any character from the null-terminated byte string pointed to 
+        by breakset, and returns a pointer to that character.
+    */
+
+/*  parameters:
+        dest     = pointer to the null-terminated byte string to be analyzed
+        breakset = pointer to the null-terminated byte string that contains the characters to search for
+    */
+
+    if (dest == NULL || breakset == NULL)
+        return NULL;
+
+    const char *tempset;
+
+    while (*dest != '\0') {
+
+        tempset = breakset;
+
+        while (*tempset != '\0') {
+
+            if (*dest == *tempset)
+                return (char*) dest;
+
+            tempset++;
+        }
+        dest++;
+    }
+
+
+    return NULL;
+
+/*  return:
+        Pointer to the first character in dest, that is also in breakset, 
+        or null pointer if no such character exists.
+    */
+
+}
+
+
     // size_t strspn( const char* dest, const char* src );
 size_t strspn_f(const char* dest, const char* src) {
 
@@ -85,7 +129,7 @@ char* strtok_f (char* str, const char* delim) {
     }
 
     token = str;
-    str = strpbrk(token, delim);
+    str = strpbrk_f(token, delim);
 
     if (str == NULL)
         iter = strchr(token, '\0');
@@ -140,10 +184,10 @@ int main(void) {
         printf("\t%d.part: %s\n", i, res);
         i++;
 
-        printf("\t\t");
-        for (j = 0; j < szStr; j++)
-            printf("%c", str[j]);
-        printf("\n\n");
+        // printf("\t\t");
+        // for (j = 0; j < szStr; j++)
+        //     printf("%c", str[j]);
+        // printf("\n\n");
 
         res = strtok(NULL, splt);
     }
@@ -161,10 +205,10 @@ int main(void) {
         printf("\t%d.part: %s\n", i, res);
         i++;
 
-        printf("\t\t");
-        for (j = 0; j < szStr; j++)
-            printf("%c", str[j]);
-        printf("\n\n");
+        // printf("\t\t");
+        // for (j = 0; j < szStr; j++)
+        //     printf("%c", str[j]);
+        // printf("\n\n");
     
         res = strtok_f(NULL, splt);
     }
