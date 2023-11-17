@@ -3,6 +3,21 @@
 #include <string.h>
 
 
+size_t strlen_f(const char* str) {
+
+    size_t len = 0;
+
+    while (*str != '\0') {
+
+        len++;
+        str++;
+    }
+
+    return len;
+
+}
+
+
 int main(void) {
 
     char str1[] = "aAbBcCdDeEfFgGhH";
@@ -21,7 +36,7 @@ int main(void) {
     printf("str2: %s\n", str2);
     printf("\tlen2: %d\n", len2);
     printf("\tsiz2: %d\n\n", siz2);
-    
+
 
     return 0;
 
