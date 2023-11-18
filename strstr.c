@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 
@@ -22,24 +21,34 @@ char* strstr_f(const char *str, const char *substr) {
     
     if (*substr == '\0') return (char*) str;
 
+        // const char* tempStr = (work variable)
     const char* tempStr = str;
+        // const char* tempSubstr = (work variable) 
     const char* tempSubstr = substr;
 
+        // int true = (boolean-like variable) 
     int true = 1;
 
+        // for loop - loops through char in src string
     for ( ; *str != '\0'; str++) {
 
+            // if - if char in str doesn't match with char in substr = continue
         if (*str != *substr) continue;
 
+            // setting value of tempStr back to str
         tempStr = str;
 
+            // while loop - loops through char in tempStr and char in tempSubstr
         while (true) {
 
             if (*tempSubstr == '\0') return (char*) str;
 
+                // if - char in tempStr doesn't match with char in tempSubtr = break
             if (*tempStr++ != *tempSubstr++) break;
         }
+            // setting value of tempSubstr back to substr;
         tempSubstr = substr;
+
     }
 
 
