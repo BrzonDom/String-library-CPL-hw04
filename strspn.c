@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 
@@ -44,27 +43,42 @@ size_t strspn_f(const char* dest, const char* src) {
     }
 */
 
+        // size_t len = (return variable) The length of the maximum initial segment that contains only characters from byte string pointed to by src.  
     size_t len = 0;
+    
+        // size_t shift = (work varaible) Used for returning pointer to src string back to 1. char
+    size_t shift = 0;
 
+        // int match = (boolean-like variable) 
     int match = 0;
 
+
+        // while loop - loops through each char in dest string
     while (*dest != '\0') {
 
+            // setting values of variables to default values 
         match = 0;
+        shift = 0;
 
+            // while - loops through each char in src string
         while (*src != '\0') {
+
+                // if - char in dest match with char in src - break 
             if (*dest == *src) {
                 match = 1;
                 break;
             }
+            shift++;
             src++;
         }
+            // returning pointer to src string back to 1. char
+        src -= shift;
 
+            // if - char in dest didn't match with any char in src - break
         if (!match) break;
-        else len++;
 
+        len++;
         dest++;
-
     }
 
     return len;
@@ -79,7 +93,7 @@ size_t strspn_f(const char* dest, const char* src) {
 int main(void) {
 
     char str1[] = "1234567890abcdefgh";
-    char str2[] = "012345";
+    char str2[] = "abc4321";
 
     int len1 = strlen(str1);
     int len2 = strlen(str2);
