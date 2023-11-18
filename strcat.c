@@ -1,6 +1,4 @@
-#include <inttypes.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 
@@ -19,18 +17,20 @@ char* strcat_f(char* dest, const char* src) {
         src  = pointer to the null-terminated byte string to copy from 
     */
 
-    unsigned long int i = 0, j = 0;
-
+        // while loop - loops through the char in dest string setting the pointer to null terminator
     while (*dest != '\0') dest++;
 
+        // while loop - loops through the char in src string
     while (*src != '\0') {
 
+            // sets the dest char pointer to src char pointer
         *dest = *src;
     
         dest++;
         src++;
     }
 
+        // adds a null pointer to the end of dest string
     *dest = '\0';
 
 
